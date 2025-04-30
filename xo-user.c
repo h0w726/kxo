@@ -117,6 +117,7 @@ int main(int argc, char *argv[])
             FD_CLR(device_fd, &readset);
             printf("\033[H\033[J"); /* ASCII escape code to clear the screen */
             read(device_fd, display_buf, DRAWBUFFER_SIZE);
+            display_buf[DRAWBUFFER_SIZE - 1] = '\0';
             printf("%s", display_buf);
         }
     }
